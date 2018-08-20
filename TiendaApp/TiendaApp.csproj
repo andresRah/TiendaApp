@@ -10,6 +10,11 @@
         <PackageReference Include="Telerik.UI.for.AspNet.Core.Trial" Version="2018.2.620" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Tienda.Data\Tienda.Data.csproj" />
+      <ProjectReference Include="..\Tienda.Models\Tienda.Models.csproj" />
+    </ItemGroup>
+
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
         <DefineConstants>$(DefineConstants);RELEASE</DefineConstants>
     </PropertyGroup>

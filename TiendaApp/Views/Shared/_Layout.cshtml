@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -30,7 +30,7 @@
     <div class="k-header">
         <div class="container">
             <div class="row">
-                <h1><a asp-controller="Home" asp-action="Index">Your .NET Core Application</a></h1>
+                <h1><a asp-controller="Home" asp-action="Index">ShopMaker</a></h1>
             </div>
         </div>
     </div>
@@ -41,25 +41,29 @@
                     .Items(items =>
                     {
                         items.Add()
-                            .Text("Home")
-                            .Action("Index", "Home");
-                        items.Add()
-                            .Text("About")
+                            .Text("Proveedores")
                             .Action("About", "Home");
                         items.Add()
-                            .Text("Contact")
+                            .Text("Productos")
                             .Action("Contact", "Home");
-                        items.Add().Text("Disabled item").Enabled(false);
+                        items.Add()
+                            .Text("Compras")
+                            .Action("Contact", "Home");
+                        items.Add()
+                            .Text("Clientes")
+                            .Action("Index", "Home");
+                        items.Add()
+                            .Text("Ventas")
+                            .Action("Contact", "Home");
                     })
                 )
             </div>
-            <button id="configure" class="k-rpanel-toggle k-button k-primary btn-toggle"><span class="k-icon k-i-hbars"></span></button>
         </div>
     <div class="container body-content">
         @RenderBody()
         <footer class="footer">
-            <span class="text-muted">Copyright © @DateTime.Now.Year Progress Software Corporation and/or its subsidiaries or affiliates.</span>
-            <span class="text-muted">All rights reserved.</span>
+            <span class="text-muted">© @DateTime.Now.Year.</span>
+            <span class="text-muted">Software de gestión de ventas y producto.</span>
         </footer>
     </div>
 
