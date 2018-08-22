@@ -7,7 +7,7 @@
     using Tienda.Data.ManualCode.Data.Interface;
     using Tienda.Models.ManualModels;
 
-    public partial class BalanceRepository : IBalanceRepository
+    public partial class CategoryRepository : ICategoryRepository
     {
         /// <summary>
         /// Localizador de contextos en el ambiente
@@ -31,10 +31,10 @@
         }
 
         /// <summary>
-        /// Constructor del Repositorio de la entidad: Balance (Balance)
+        /// Constructor del Repositorio de la entidad: Category (Category)
         /// </summary>
         /// <param name="unitOfWork">Contexto de la base de datos</param>
-        public BalanceRepository(TiendaDbContext ambientDbContextLocator)
+        public CategoryRepository(TiendaDbContext ambientDbContextLocator)
         {
             if (ambientDbContextLocator == null) throw new ArgumentNullException("ambientDbContextLocator");
             _ambientDbContextLocator = ambientDbContextLocator;
@@ -52,28 +52,28 @@
         /// <param name="entity">Entidad a insertar</param>
         /// <param name="user">Usuario que ejecuta la inserción</param>
         /// <returns>Se devulve la entidad creada con el id asignado</returns>
-        public Balance Insert(Balance entity, string user)
+        public Category Insert(Category entity, string user)
         {
             try
             {
                 entity.CreateTime = DateTime.UtcNow;
                 entity.UpdateTime = DateTime.UtcNow;
-                Context.Set<Balance>().Add(entity);
+                Context.Set<Category>().Add(entity);
                 Context.ChangeTracker.DetectChanges();
                 return entity;
             }
             catch (Exception e)
             {
-                throw new Exception("Error al Insertar Balance");
+                throw new Exception("Error al Insertar Category");
             }
         }
 
         /// <summary>
-        /// Metodo que actualiza la entidad Balance (Balance) con los datos pasados por parametro
+        /// Metodo que actualiza la entidad Category (Category) con los datos pasados por parametro
         /// </summary>
         /// <param name="entity">Entidad a actualizar</param>
         /// <param name="user">Usuario que actualiza la entidad</param>
-        public void Update(Balance entity, string user)
+        public void Update(Category entity, string user)
         {
             try
             {
@@ -83,12 +83,12 @@
             }
             catch (Exception e)
             {
-                throw new Exception("Error al Actualizar Balance");
+                throw new Exception("Error al Actualizar Category");
             }
         }
 
         /// <summary>
-        /// Metodo que elimina una entidad Balance (Balance) dado su Id
+        /// Metodo que elimina una entidad Category (Category) dado su Id
         /// </summary>
         /// <param name="id">Id de la entidad a eliminar</param>
         /// <param name="user">Usuario que elimina la entidad</param>
@@ -99,12 +99,12 @@
             {
                 try
                 {
-                    this.Context.Set<Balance>().Remove(entity);
+                    this.Context.Set<Category>().Remove(entity);
 
                 }
                 catch (Exception e)
                 {
-                    throw new Exception("Error al Eliminar Balance");
+                    throw new Exception("Error al Eliminar Category");
                 }
             }
             else
@@ -114,19 +114,19 @@
         }
 
         /// <summary>
-        /// Metodo que devuelve la entidad Balance (Balance) con el Id dado por parametro
+        /// Metodo que devuelve la entidad Category (Category) con el Id dado por parametro
         /// </summary>
         /// <param name="id">Id de la etidad requerida</param>
         /// <returns>La Entidad con el Id dado por parametro</returns>
-        public Balance Get(int id)
+        public Category Get(int id)
         {
             try
             {
-                return Context.Set<Balance>().Find(id);
+                return Context.Set<Category>().Find(id);
             }
             catch (Exception e)
             {
-                throw new Exception("Error al cargar Balance");
+                throw new Exception("Error al cargar Category");
             }
         }
 
@@ -137,88 +137,88 @@
         /// <param name="predicate">Predicado (Expresión lamda) con el filtro que se quiere aplicar</param>
         ///
         /// <returns>Coleccion de entidades que cumplen con el predicado</returns>
-        public virtual IQueryable<Balance> Where(Expression<Func<Balance, bool>> predicate)
+        public virtual IQueryable<Category> Where(Expression<Func<Category, bool>> predicate)
         {
             try
             {
                 if (true)
                 {
-                    return Context.Set<Balance>().Where(predicate);
+                    return Context.Set<Category>().Where(predicate);
                 }
 
-                return Context.Set<Balance>().Where(predicate);
+                return Context.Set<Category>().Where(predicate);
             }
             catch (Exception e)
             {
-                throw new Exception("Error al Filtrar Balance");
+                throw new Exception("Error al Filtrar Category");
             }
         }
 
         /// <summary>
-        /// Metodo que devuelve una Colección con todas las entidades Balance (Balance)
+        /// Metodo que devuelve una Colección con todas las entidades Category (Category)
         /// </summary>
         ///
         /// <returns>Colección con todas las entidades</returns>
-        public virtual IQueryable<Balance> GetAll()
+        public virtual IQueryable<Category> GetAll()
         {
             try
             {
-                return Context.Set<Balance>();
+                return Context.Set<Category>();
             }
             catch (Exception e)
             {
-                throw new Exception("Error al cargar todos Balance");
+                throw new Exception("Error al cargar todos Category");
             }
         }
 
         /// <summary>
-        /// Metodo que devuelve la entidad Balance (Balance) con el Id dado por parametro y las entidades relacionadas
+        /// Metodo que devuelve la entidad Category (Category) con el Id dado por parametro y las entidades relacionadas
         /// que son especificadas por medio de expresiones lamda
         /// </summary>
         /// <typeparam name="T">Tipo del elemento de la relación que se espera</typeparam>
         /// <param name="id">Id de la entidad a devolver</param>
         /// <param name="associations">Expresiones lamda con las entidades relacionadas que se requiere devolver</param>
         /// <returns>Entidad con el id pasado por parametro y las entidades relacionadas</returns>
-        public Balance GetWithInclude<T>(int id, params Expression<Func<Balance, object>>[] associations) where T : class
+        public Category GetWithInclude<T>(int id, params Expression<Func<Category, object>>[] associations) where T : class
         {
             try
             {
-                var source = (IQueryable<Balance>)Context.Set<Balance>();
+                var source = (IQueryable<Category>)Context.Set<Category>();
                 if (associations != null)
                 {
-                    foreach (Expression<Func<Balance, object>> path in associations)
-                        source = source.Include<Balance, object>(path);
+                    foreach (Expression<Func<Category, object>> path in associations)
+                        source = source.Include<Category, object>(path);
                 }
-                return source.SingleOrDefault(e => e.BalanceId == id);
+                return source.SingleOrDefault(e => e.CategoryId == id);
             }
             catch (Exception e)
             {
-                throw new Exception("Error al cargar incluido Balance");
+                throw new Exception("Error al cargar incluido Category");
             }
         }
 
         /// <summary>
-        /// Metodo que devuelve una Colección con todas las entidades Balance (Balance)
+        /// Metodo que devuelve una Colección con todas las entidades Category (Category)
 		/// y las entidades relacionadas que son especificadas por medio de expresiones lamda
         /// </summary>
         /// <typeparam name="T">Tipo del elemento de la relación que se espera</typeparam>
         /// <param name="associations">Expresiones lamda con las entidades relacionadas que se requiere devolver</param>
         /// <returns>Coleccion de entidades con sus entidades relacionadas</returns>
-		public IQueryable<Balance> IncludeMultiple<T>(params Expression<Func<Balance, object>>[] associations) where T : class
+		public IQueryable<Category> IncludeMultiple<T>(params Expression<Func<Category, object>>[] associations) where T : class
         {
             try
             {
-                var source = (IQueryable<Balance>)Context.Set<Balance>();
+                var source = (IQueryable<Category>)Context.Set<Category>();
                 if (associations != null)
                 {
-                    foreach (Expression<Func<Balance, object>> path in associations)
-                        source = source.Include<Balance, object>(path);
+                    foreach (Expression<Func<Category, object>> path in associations)
+                        source = source.Include<Category, object>(path);
                 }
                 return source;
             }
             catch (Exception e)
             {
-                throw new Exception("Error al filtrar Insertar Balance");
+                throw new Exception("Error al filtrar Insertar Category");
             }
         }
 

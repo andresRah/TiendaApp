@@ -16,9 +16,9 @@
         public string key;
 
         /// <summary>
-        /// Conjunto de entidades Balance (Balance)
+        /// Conjunto de entidades Category (Category)
         /// </summary>
-        public DbSet<Balance> Balance { get; set; }
+        public DbSet<Category> Category { get; set; }
         /// <summary>
         /// Conjunto de entidades Category (Category)
         /// </summary>

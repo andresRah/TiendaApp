@@ -9,12 +9,12 @@ namespace Tienda.Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Balance",
+                name: "Category",
                 columns: table => new
                 {
-                    BalanceId = table.Column<int>(nullable: false)
+                    CategoryId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    DateBalance = table.Column<DateTime>(nullable: false),
+                    DateCategory = table.Column<DateTime>(nullable: false),
                     TotalSold = table.Column<decimal>(nullable: false),
                     TotalBuy = table.Column<decimal>(nullable: false),
                     CreateTime = table.Column<DateTime>(nullable: false),
@@ -22,7 +22,7 @@ namespace Tienda.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Balance", x => x.BalanceId);
+                    table.PrimaryKey("PK_Category", x => x.CategoryId);
                 });
 
             migrationBuilder.CreateTable(
@@ -265,7 +265,7 @@ namespace Tienda.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Balance");
+                name: "Category");
 
             migrationBuilder.DropTable(
                 name: "Purchase");
