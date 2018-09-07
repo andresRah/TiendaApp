@@ -4,17 +4,17 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Tienda.Data.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Category",
+                name: "Balance",
                 columns: table => new
                 {
-                    CategoryId = table.Column<int>(nullable: false)
+                    BalanceId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    DateCategory = table.Column<DateTime>(nullable: false),
+                    DateBalance = table.Column<DateTime>(nullable: false),
                     TotalSold = table.Column<decimal>(nullable: false),
                     TotalBuy = table.Column<decimal>(nullable: false),
                     CreateTime = table.Column<DateTime>(nullable: false),
@@ -22,7 +22,7 @@ namespace Tienda.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Category", x => x.CategoryId);
+                    table.PrimaryKey("PK_Balance", x => x.BalanceId);
                 });
 
             migrationBuilder.CreateTable(
@@ -265,7 +265,7 @@ namespace Tienda.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Category");
+                name: "Balance");
 
             migrationBuilder.DropTable(
                 name: "Purchase");

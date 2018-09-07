@@ -10,8 +10,8 @@ using Tienda.Data;
 namespace Tienda.Data.Migrations
 {
     [DbContext(typeof(TiendaDbContext))]
-    [Migration("20180820203605_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20180907025101_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,15 +21,15 @@ namespace Tienda.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Tienda.Models.ManualModels.Category", b =>
+            modelBuilder.Entity("Tienda.Models.ManualModels.Balance", b =>
                 {
-                    b.Property<int>("CategoryId")
+                    b.Property<int>("BalanceId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreateTime");
 
-                    b.Property<DateTime>("DateCategory");
+                    b.Property<DateTime>("DateBalance");
 
                     b.Property<decimal>("TotalBuy");
 
@@ -37,9 +37,9 @@ namespace Tienda.Data.Migrations
 
                     b.Property<DateTime>("UpdateTime");
 
-                    b.HasKey("CategoryId");
+                    b.HasKey("BalanceId");
 
-                    b.ToTable("Category");
+                    b.ToTable("Balance");
                 });
 
             modelBuilder.Entity("Tienda.Models.ManualModels.Category", b =>
