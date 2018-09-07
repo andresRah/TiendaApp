@@ -3,9 +3,9 @@
     using System;
     using System.ComponentModel;
 
-    public partial class CategoryDTO
+    public partial class BalanceDTO
     {
-        [DisplayName("CategoryId")]
-        public int CategoryId { get; set; }
+        [DisplayName("BalanceId")]
+        public int BalanceId { get; set; }
     }
 }

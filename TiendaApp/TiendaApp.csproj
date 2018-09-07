@@ -13,6 +13,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Tienda.Data\Tienda.Data.csproj" />
       <ProjectReference Include="..\Tienda.Models\Tienda.Models.csproj" />
+      <ProjectReference Include="..\Tienda.Services\Tienda.Services.csproj" />
     </ItemGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">

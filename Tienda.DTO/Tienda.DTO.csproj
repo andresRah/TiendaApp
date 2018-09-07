@@ -5,4 +5,8 @@
     <RuntimeFrameworkVersion>2.1.2</RuntimeFrameworkVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Tienda.Models\Tienda.Models.csproj" />
+  </ItemGroup>
+
 </Project>

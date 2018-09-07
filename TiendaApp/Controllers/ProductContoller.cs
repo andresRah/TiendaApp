@@ -1,9 +1,10 @@
 ﻿namespace TiendaApp.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
+    using Kendo.Mvc.UI;
+    using Microsoft.AspNetCore.Mvc;
     using System.Threading.Tasks;
+    using Tienda.Services.ManualCode.Class;
+    using Tienda.Services.ManualCode.Interface;
 
     [Produces("application/json")]
     [Route("api/[controller]")]
@@ -22,8 +23,5 @@
             DataSourceResult result = _services.GetAll(request);
             return result;
         }
-
-
-
     }
 }

@@ -218,7 +218,7 @@
             }
             catch (Exception e)
             {
-                throw new Exception("Error al filtrar Insertar Customer");
+                throw new Exception("Error al filtrar Insertar Customer "+e.Message);
             }
         }
 

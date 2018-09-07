@@ -6,15 +6,15 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public partial class Category
+    public partial class Balance
     {
 
         #region Constructor
 
         /// <summary>
-        /// Metodo constructor de la entidad: Category
+        /// Metodo constructor de la entidad: Balance
         /// </summary>
-        public Category()
+        public Balance()
         {
 
         }
@@ -30,14 +30,14 @@
         /// Propiedad que representa la llave primaria de la entidad: Intencion
         /// </summary>
         [Key]
-        public int CategoryId { get; set; }
+        public int BalanceId { get; set; }
 
         /// <summary>
-        /// Propiedad DateCategory (DateCategory)
+        /// Propiedad DateBalance (DateBalance)
         /// </summary>
-        [DisplayName("DateCategory")]
+        [DisplayName("DateBalance")]
         [Required]
-        public DateTime DateCategory { get; set; }
+        public DateTime DateBalance { get; set; }
 
         /// <summary>
         /// Propiedad TotalSold (TotalSold)
