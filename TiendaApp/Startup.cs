@@ -21,9 +21,6 @@ namespace TiendaApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<TiendaDbContext>(options =>
-                                  options.UseSqlServer(Configuration.GetConnectionString("TiendaDatabase")));
-
             // Add framework services.
             services.AddMvc()
                     .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
@@ -31,6 +28,9 @@ namespace TiendaApp
                     // https://github.com/aspnet/Announcements/issues/194
                     .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
 
+            //services.AddDbContext<TiendaDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("TiendaDatabase")));
+            //var connection = @"Server=(localdb)\\mssqllocaldb;Database=TiendaDB;Trusted_Connection=True;";
+            services.AddDbContext<TiendaDbContext>();
             // Add Kendo UI services to the services container
             services.AddKendo();
         }
